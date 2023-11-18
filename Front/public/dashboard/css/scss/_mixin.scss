@@ -1,0 +1,43 @@
+//color
+@mixin color_variant($color) {
+  color: $color !important;
+}
+
+//bg color
+@mixin bg_variant($bg) {
+  background-color: $bg !important;
+}
+
+//font-weight
+@mixin font_weight($value) {
+  font-weight: $value !important;
+}
+
+//z-index
+@mixin z_index($val) {
+    z-index: $val !important;
+}
+
+@mixin btn_default($color){
+  background: $color;
+  color: $white;
+  transition: all ease 0.5s;
+  &:hover{
+    color: $white;
+    background: darken($color, 10%);
+  }
+}
+
+@mixin link_bordered($color){
+  border-bottom: 1px solid $color;
+}
+
+@mixin btn_bordered($color){
+  border: 0 solid transparent;
+  outline: 1px solid $color !important;
+  color: $color;
+  &:hover{
+    color:$white;
+    background: darken($color, 10%);
+  }
+}

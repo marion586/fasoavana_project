@@ -1,0 +1,84 @@
+.kl-table-responsive {
+    border-radius: 5px;
+    
+    .kl-table-striped {        
+        th {
+            @extend %text_12;
+            font-weight: $bold;
+            text-align: center;
+            border-top: none !important;
+            height: 68px;
+            color: $gray_sixth;
+            text-transform: none;
+        }
+    
+        tbody {
+            tr {
+    
+                &:first-child>td {
+                    padding-top: 0;
+                }
+    
+                &:last-child>td {
+                    padding-bottom: 0;
+                }
+    
+                &:nth-of-type(odd)>* {
+                    background: $table-bg-gray;
+                }
+    
+                &:nth-of-type(even)>* {
+                    background: $white;
+                }
+    
+            }
+        }
+        td {
+            padding: 0 31px;
+            text-align: center;
+            font-weight: $regular;
+            font-size: 14px;
+            line-height: 17px;
+            color: $gray_sixth !important;
+            
+            a {
+                color: inherit;
+            }
+    
+            &.kl-image {
+                padding: 11px 0 12px 31px !important;   
+            }
+
+            &.kl-image-product {
+                padding: 3px 0 3px 10px !important;   
+
+                img {
+                    max-width: 32px;
+                }
+            }
+    
+            .avatar  {
+                width: 27px;
+                height: 27px;
+                border-radius: 50%;
+            }
+    
+            .kl-btn-qr {
+                width: 50px;
+                height: 20px;
+                background: $white;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+                border-radius: 6px;
+                font-weight: $regular;
+                font-size: 9px;
+                line-height: 11px;
+                color: $gray_seventh;
+                padding: 0;
+    
+                &:hover {
+                    background: $gray_tertiary;
+                }
+            }
+        }
+    }
+}

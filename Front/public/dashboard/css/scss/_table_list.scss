@@ -1,0 +1,226 @@
+.kl-card-table-control{
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  .card-header{
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .kl-paginate-wrap{
+    flex-grow: 1;
+  }
+}
+
+.kl-wrapper-default-table{
+  border: 0.5px solid $gray_border_table;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  .kl-default-table-resp{
+    margin-bottom: 0;
+  }
+}
+
+.kl-default-table-resp{
+  border-radius: 0;
+  .sorting, .sorting_asc, .sorting_desc{
+    padding-right: 26px !important;
+    &::after{
+      margin-left: auto;
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: 0;
+      background-image: url(../img/lvx/icons/icon-sorting.svg) !important;
+    }
+  }
+  tbody td, td{
+    white-space: normal;
+  }
+  thead th, th{
+    white-space: nowrap;
+  }
+  .kl-table-action{
+    &.sorting::after, &.sorting_asc::after, &.sorting_desc::after{
+      display: none;
+    }
+  }
+  thead{
+    border: 0;
+    th{
+      font-size: 12px;
+      font-weight: $regular;
+      line-height: 1.25em;
+      color: $gray_sixth;
+      background-color: $gray_bg_th;
+      padding: 26px 14px 25.2px;
+      border: 0;
+      border-top: 0.5px solid $gray_border_table !important;
+      border-bottom: 0.5px solid $gray_border_table !important;
+      vertical-align: middle !important;
+    }
+  }
+  tr{
+    border: 0;
+    td{
+      font-size: 14px;
+      line-height: 1.2em;
+      font-weight: $light;
+      color: $gray_sixth;
+      padding: 14px 12px;
+      border: 0;
+    }
+  }
+  tbody {
+    tr {
+      &:first-child {
+        td {
+          padding-top: 30px;
+        }
+      }
+      &:last-child {
+        td {
+          padding-bottom: 40px;
+        }
+      }
+    }
+  }
+  .kl-avatar{
+    font-size: 14px;
+    line-height: 1.2em;
+    text-align: center;
+    font-weight: $regular;
+    color: $gray_sixth;
+    .kl-info-txt{
+      flex-grow: 1;
+      text-align: start;
+      white-space: nowrap;
+    }
+    .avatar{
+      width: 27px;
+      height: 27px;
+    }
+  }
+  .kl-custom-avatar{
+    .kl-avatar-circle{
+      width: 49px;
+      height: 44px;
+      border-radius: 11px;
+    }
+  }
+  .kl-action-column-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .kl-action-link{
+      padding: 0 0.5rem;
+      & + .kl-action-link{
+        margin-left: 5px;
+      }
+    }
+    .kl-btn-action{
+      width: auto;
+      padding: 0 5px;
+    }
+    .kl-dropdown-action{
+      .dropdown-menu{
+        min-width: fit-content;
+      }
+    }
+  }
+  &.kl-custom-table-default{
+    thead{
+      th{
+        padding: 17px 13px 21px;
+      }
+    }
+    tr{
+      td{
+        padding: 16px 11px;
+      }
+    }
+  }
+}
+
+.kl-custom-small-table{
+  .sorting, .sorting_asc, .sorting_desc{
+    &::after{
+      position: absolute;
+      margin-left: 15px;
+    }
+  }
+}
+
+.kl-table-head-bordered{
+  table{
+    border: 1px solid $gray_border_table !important;
+    thead{
+      th{
+        border: 1px solid $gray_border_table !important;
+        text-align: center;
+      }
+    }
+    tbody{
+      td{
+        padding: 12px !important;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.kl-card-table-footer{
+  border: 0;
+  border-top: 0.5px solid $gray_border_table;
+  padding: 18px 20px 60px;
+}
+
+.kl-paginate-count{
+  color: $gray_sixth;
+  span{
+    font-size: 12px;
+    font-weight: $medium;
+    line-height: 1.25em;
+  }
+  .kl-separator{
+    margin: 0 1px;
+  }
+}
+
+.kl-table-nowrap{
+  th, td{
+    white-space: nowrap !important;
+  }
+}
+
+.kl-icon-edit-pen {
+  &::before {
+    content: url(../img/lvx/icons/icon-edit-pen.svg);
+  }
+}
+
+.kl-pagination {
+  .page-item {
+    &.active {
+      .page-link {
+        color: $white;
+        background-color: $yellow_theme;
+        border-color: $yellow_theme;
+      }
+    }
+  }
+  .page-link {
+    min-width: 27px;
+    padding: 2px 10px;
+    &:hover {
+      color: $yellow_theme;
+    }
+  }
+}
+
+.kl-btn-with-icon{
+  width: auto !important;
+  height: auto !important;
+  padding: 0 5px;
+}

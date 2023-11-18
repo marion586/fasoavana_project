@@ -1,0 +1,115 @@
+.kl-header {
+    background-color: rgba(252, 252, 252, 1) !important;
+    height: auto;
+    padding: 8px 32px 8px 0 !important;
+    border: none;
+    .input-group-prepend {
+        i {
+            color: #DFE3E8;
+        }
+    }
+
+    .js-form-search {
+        background-color: transparent;
+        &::placeholder {
+            font-size: 14px;
+            font-style: italic;
+            font-weight: $medium;
+            line-height: 17px;
+            color: #DFE3E8;
+        }
+    }
+    .nav-item {
+
+        .kl-notif-btn {
+            font-size: 14px;
+            color: $red_theme;
+            border: 1px solid $red_theme;
+            width: 36px;
+            height: 36px;
+            transition: all .2s;
+            &:hover, &:focus{
+                background-color: $red_theme !important;
+                color: $black_primary;
+            }
+            .btn-status {
+                height: 8.11px;
+                width: 8.11px;
+                left: 20.27px;
+                top: 8.61px;
+            }
+        }
+
+        .navbar-dropdown-account-wrapper {
+            padding: 0;
+            flex-direction: row-reverse;
+            &:focus, &:hover {
+                background-color: transparent;
+            }
+
+            .avatar {
+                width: 31px;
+                height: 31px;
+                background-color: transparent;
+                border: none;
+                padding: 0;
+            }
+
+            .kl-user-pseudo {
+                font-style: normal;
+                font-weight: $regular;
+                font-size: 14px;
+                line-height: 17px;
+                text-transform: uppercase;
+                color: $gray_fifth;
+                margin-right: 12px;
+                margin-left: 10px;
+            }
+
+            .kl-dropdown-arrow {
+                width: 15.46px;
+                height: 8.9px;
+                margin-right: 35.54px;
+            }
+        }
+        
+        .navbar-dropdown-account {
+            min-width: unset;
+            max-width: 101px;
+            width: 100%;
+            right: 35.54px;
+            padding: 8.08px;
+
+            .dropdown-item {
+                font-size: 11px;
+                font-weight: $regular;
+                line-height: 13px;
+                letter-spacing: 0em;
+                text-align: left;
+                padding: 0;
+                color: rgba(183, 186, 190, 1);
+                position: relative;
+
+                &:first-of-type {
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+}
+.nav-tabs .nav-item.show .nav-link, 
+.nav-tabs .nav-link.active{
+    color: $purple_dark;
+    border-color: $purple_dark;
+}
+
+.kl-search-input{
+    &::placeholder{
+        font-size: 14px !important;
+        line-height: 0.813em;
+        font-weight: $light !important;
+        color: $gray_fourth !important;
+        vertical-align: middle;
+        opacity: 1 !important;
+      }
+}

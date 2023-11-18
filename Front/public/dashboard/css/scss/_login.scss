@@ -1,0 +1,65 @@
+.kl-body-login{
+	width: 100%;
+    height: 100%;
+}
+
+.kl-wrapper-login{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+	justify-content: center;
+}
+
+.kl-bg-transparent{
+	@include media-breakpoint-down(md){
+		background-color: transparent !important;
+	}
+}
+.kl-card-login{
+	box-shadow: none;
+	border: 0;
+	border-radius: 0;
+	background-color: transparent;
+	position: relative;
+	&::before{
+		content: '';
+		position: absolute;
+		background-color: $white;
+		width: 300%;
+		height: 150vh;
+		min-height: 100%;
+		top: 0;
+		left: 0;
+		transform: translateY(-50vh);
+		@include media-breakpoint-down(md){
+			display: none;
+		}
+	}
+	.card-body{
+		padding: 25px 0px 39px 32px;
+		z-index: 1;
+	}
+	h1{
+		font-weight: $bold;
+		margin-bottom: 0;
+		@extend %text_27;
+	}
+	.form-label{
+		font-weight: 300;
+		font-size: 14px;
+		line-height: 17px;
+	}
+	.kl-default-btn{
+		border-radius: 0;
+		font-size: 16px;
+		color: $black;
+		font-weight: $bold;
+		padding: 13.5px 20px;
+	}
+	@include media-breakpoint-down(md){
+		.card-body{
+			padding: 15px 15px 20px;
+		}
+	}
+}

@@ -1,0 +1,130 @@
+$yellow_theme: #F9B233;
+$blue_light: #F8FAFF;
+$gray_primary: #F0F0F0;
+$gray_secondary: #969696;
+$black_primary: #261B10;
+$black_secondary: #14151E;
+$gray_tertiary: #F5F5F5;
+$gray_fourth: #6F6F6F;
+$gray_fifth: #878787;
+$gray_sixth: #677788;
+$gray_bg_th: #F8FAFD;
+$gray_border_table: #E7EAF3;
+$gray_form_label: #B7BABE;
+$gray_bg_input: #F9F9F9;
+$gray_border_input: #CBCFD3;
+$gray_light: #F3F3F3;
+
+$red_theme: #DD1016;
+$black: #000000;
+$white: #FFFFFF;
+
+$gray_seventh: #8D99AE;
+$gray_eighth: #EAEAEA;
+$gray_nineth: #D9D9D9;
+$gray_eleven: #EEEEEE;
+$gray_twelve: #EFEFEF;
+$gray_thirteen: #DCDCDC;
+$gray_fourrteen: #747E8F;
+
+$navy_blue: #132144;
+$purple_dark: #2B2D42;
+$purple_light: #BCC1F4;
+$pink: #FF8897;
+$table-bg-gray: #F8F8F8;
+$gray_border: #D9D9D9;
+$red_secondary : #EF233C;
+$gray_ten: #818C9F;
+$gray_text: #A8A8A8;
+$blue: #73C6F5;
+$white_darken: #F6F6F6;
+$border_grey: #DFE3E8;
+$bg_gray: #FBFBFB;
+$gray_empty: #C6D9E4;
+$oragne: #F59273;
+$purple: #E373F5;
+$bg_gray_secondary: #FAFAFA;
+$gray_text_secondary: #383A4D;
+$green: #33C481;
+$text_blue: #0C6DFF;
+$bg_blue_light: #72C6F5;
+$fc_purple: #E372F5;
+$fc_gray: #EEEEEE;
+$fc_orange: #F59272;
+$fc_yellow: #F5E872;
+$green_secondary: #10CC00;
+$green_tertiary: #53E77C;
+$red_tertiary: #FF0909;
+$break_gray: #B9B9B9;
+$green_quadry: #52E17A;
+$red_quadry: #F54C41;
+$yellow_secondary: #F8F2C0;
+$green_fifth: #73F5DE;
+
+$light:300;
+$regular:400;
+$medium:500;
+$semi_bold:600;
+$bold:700;
+$extra-bold:800;
+$extra-bolder:900;
+
+$theme_colors: (
+        "yellow-theme": $yellow_theme,
+        "red-theme": $red_theme,
+        "black": $black,
+        "black-primary": $black_primary,
+        "black-secondary": $black_secondary,
+        "white": $white,
+        "gray-primary": $gray_primary,
+        "gray-secondary": $gray_secondary,
+        "gray-fourth": $gray_fourth,
+        "gray-fifth": $gray_fifth,
+        "gray-sixth": $gray_sixth,
+        "gray-seventh": $gray_seventh,
+        "gray-eighth": $gray_eighth,
+        "gray-nineth": $gray_nineth,
+        "gray-bg-input": $gray_bg_input,
+        "gray-form-label": $gray_form_label,
+        "blue-light": $blue_light,
+        "navy-blue": $navy_blue,
+        "purple-dark": $purple_dark,
+        "purple-light": $purple_light,
+        "gray-tertiary": $gray_tertiary,
+        "pink": $pink,
+        "table-bg-gray": $table-bg-gray,
+        "blue": $blue,
+        "gray-ten": $gray_ten,
+        "green-tertiary": $green_tertiary,
+        "green-quadry": $green_quadry,
+        "red-quadry": $red_quadry,
+        "yellow-secondary": $yellow_secondary,
+        "gray-light": $gray_light,
+        "gray-fourteen": $gray_fourrteen,
+        "green-fifth": $green_fifth
+);
+
+//font-weight
+$font_weight: (
+  "extra-bolder": $extra-bolder,
+  "extra-bold": $extra-bold,
+  "bold": $bold,
+  "semi-bold": $semi_bold,
+  "medium": $medium,
+  "regular": $regular,
+  "light": $light,
+);
+
+//z-index
+$z_index_value: (
+  "0": 0,
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+);
+
+$grid-breakpoints: (xxs:375px, xs:480px, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl_1366: 1366px, xxl: 1400px);
+
+$base_font : 'Inter', sans-serif;

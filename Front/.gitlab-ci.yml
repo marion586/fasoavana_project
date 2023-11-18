@@ -1,0 +1,34 @@
+default:
+
+stages:
+  - deploy
+
+deploy_develop:
+  stage: deploy
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "develop"'
+      when: always
+  variables:
+    env : "develop" 
+  script:
+    - echo "build and deploy dans DEV. Using BRANCH= DEVELOP"
+    - id
+    - ssh -o StrictHostKeyChecking=no guillmann@5.135.17.58 "cd /var/www/html/spider/react-dev && git stash && git switch develop && git pull"
+    - ssh -o StrictHostKeyChecking=no guillmann@5.135.17.58 "cd /var/www/html/spider/react-dev && yarn && yarn run build"
+
+deploy_preprod:
+  stage: deploy
+  only:
+    - tags
+  variables:
+    env : "preprod"
+  script:
+    - echo "build and deploy dans RECETTE. Using TAG= $CI_COMMIT_TAG"
+    - id
+    - ssh -o StrictHostKeyChecking=no guillmann@5.135.17.58 "cd /var/www/html/spider/react && git stash && git switch master && git pull --all &>/dev/null"
+    - ssh -o StrictHostKeyChecking=no guillmann@5.135.17.58 "cd /var/www/html/spider/react && git branch -D latest &>/dev/null"
+    - ssh -o StrictHostKeyChecking=no guillmann@5.135.17.58 "cd /var/www/html/spider/react && git checkout tags/$CI_COMMIT_TAG -b latest"
+
+    - ssh -o StrictHostKeyChecking=no guillmann@5.135.17.58 "cd /var/www/html/spider/react && yarn && yarn run build"

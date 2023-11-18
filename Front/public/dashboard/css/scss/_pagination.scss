@@ -1,0 +1,40 @@
+.kl-nav-paginate-table{
+  .kl-paginate-list{
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  select{
+    padding: 0;
+    background: transparent;
+    border: 0;
+  }
+  li, li a, li span, select{
+    font-size: 12px;
+    font-weight: $medium;
+    line-height: 1.25em;
+    color: $gray_sixth;
+    white-space: nowrap;
+  }
+  .kl-prev{
+    margin-right: 10px;
+    padding: 5px 10px 5px 0;
+  }
+  .kl-next{
+    margin-left: 10px;
+    padding: 5px 0 5px 10px;
+  }
+  .kl-paginate-arrow{
+    path, i{
+      transition: all ease 0.5s;
+    }
+    &:hover{
+      path, i{
+        transition: all ease 0.5s;
+        fill: $navy_blue;
+        color: $navy_blue;
+      }
+    }
+  }
+}

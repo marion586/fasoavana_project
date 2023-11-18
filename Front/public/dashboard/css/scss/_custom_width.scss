@@ -1,0 +1,52 @@
+$val_reset: (
+  "52" : 52px,
+  "60" : 60px,
+  "70" : 70px,
+  "82" : 82px,
+  "88" : 88px,
+  "90" : 90px,
+  "97" : 97px,
+  "105" : 105px,
+  "120" : 120px,
+  "134" : 134px,
+  "145" : 145px,
+  "152" : 152px,
+  "160" : 160px,
+  "170" : 170px,
+  "177" : 177px,
+  "188" : 188px,
+  "230" : 230px,
+  "325" : 325px,
+  "355" : 355px,
+  "448" : 448px,
+  "500" : 500px,
+  "530" : 530px,
+  "840" : 840px,
+  "920" : 920px,
+  "1200": 1200px
+);
+
+@each $val, $values in $val_reset {
+  .kl-max-w-#{$val} {
+    width: 100%;
+    max-width: $values;
+  }
+  .kl-min-w-#{$val} {
+    min-width: $values;
+  }
+  .kl-min-h-#{$val} {
+    min-height: $values !important;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .kl-max-w-sm-280 {
+    max-width: 280px !important;
+  }
+}
+
+@include media-breakpoint-up(md){
+  .kl-max-w-md-177{
+    max-width: 177px !important;
+  }
+}

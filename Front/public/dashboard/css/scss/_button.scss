@@ -1,0 +1,232 @@
+
+
+.kl-default-btn{
+  font-size: 14px;
+  line-height: 1.2em;
+  padding: 12px 20px;
+  border-radius: 5px;
+  min-width: 180px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: fit-content;
+  text-align: center;
+  border: none;
+  font-weight: $semi_bold;
+  &[class*="kl-btn-bordered"]{
+    padding: 11px 20px;
+  }
+}
+
+@each $color, $value in $theme_colors {
+  .kl-btn-#{$color} {
+    @include btn_default($value);
+  }
+  .kl-btn-bordered-#{$color} {
+    transition: all ease 0.5s;
+    @include btn_bordered($value);
+  }
+}
+
+.kl-label-radio-df{
+  position: relative;
+  padding-left: 27px;
+  @extend %text_14;
+  font-weight: $regular;
+  line-height: 1;
+  color: $gray_sixth;
+  &:before{
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 1px solid $gray_seventh;
+    border-radius: 50%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: border-color 400ms ease;
+  }
+  &:after{
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: $gray_seventh;
+    border: 1px solid $gray_seventh;
+    border-radius: 50%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) scale(0);
+    transition: transform 400ms ease;
+  }
+}
+
+.kl-check-radio-df{
+  display: none;
+}
+
+input[type="radio"]:checked + .kl-label-radio-df::before {
+  border-color: $gray_seventh;
+}
+
+input[type="radio"]:checked + .kl-label-radio-df::after {
+  transform: translateY(-50%) scale(0.65);
+}
+
+.kl-wrap-btn-end{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  a, button{
+    margin: 9px 9px;
+  }
+  .kl-btn-red-theme{
+    margin-right: 0;
+  }
+}
+
+.kl-btn-delete{
+  background: $white;
+  border: 1px solid $red_secondary;
+  border-radius: 6px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  width: 46px;
+  height: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  &:hover{
+    background: darken($white, 5%);
+    transition: all 0.3s ease-in-out ;
+  }
+}
+
+.kl-btn-show-all{
+  background: $white;
+  border: 1px solid $gray_ten;
+  border-radius: 2px;
+  width: 155px;
+  height: 35px;
+  color: $gray_ten;
+  font-size: 14px;
+  font-weight: $medium;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover{
+    background: darken($white, 5%);
+    transition: all 0.3s ease-in-out;
+  }
+}
+.kl-btn-remove{
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.kl-btn-add-matiere{
+  font-size: 11px;
+  font-weight: $regular;
+  border: none;
+  background: transparent;
+  text-decoration: underline;
+  color: $blue_light;
+  padding: 0;
+}
+
+.kl-btn-export,
+.kl-btn-view{
+  min-width: 102px;
+  line-height: 1;
+  height: 35px;
+  border-radius: 2px;
+}
+.kl-btn-export{
+  background-color: $white;
+  border: 1px solid $green;
+  color: $green;
+  padding: 5px;
+  box-shadow: 0 1px 7px #b1bfb8;
+}
+.kl-btn-export-red{
+  border: 1px solid $red_secondary;
+  color: $red_secondary;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.11);
+}
+// .kl-btn-group-export{
+//   button{
+//     & + button{
+//       margin-left: 16px;
+//     }
+//   }
+// }
+.kl-btn-view{
+  background-color: $gray_ten;
+  border: 1px solid $gray_ten;
+  color: $white;
+  padding: 6px;
+  &:hover{
+    color: $white !important;
+  }
+  i{
+    font-size: 19px;
+    position: relative;
+    top: 2px;
+    margin-left: 5px;
+  }
+}
+.kl-icon-export{
+  height: 25px;
+  margin-left: 12px;
+  border-radius: 0;
+}
+
+.kl-btn-bordered-gray_ten{
+  border: 1px solid $gray_ten;
+  color: $gray_ten;
+  &:hover{
+    background: darken($white, 5%);
+    color: $gray_ten;
+    transition: all 0.3s ease-in-out;
+  }
+}
+.kl-export-pdf{
+  display: block;
+  background: $white;
+  color: $red_secondary;
+  border: 1px solid $red_secondary;
+  border-radius: 5px;
+  padding: 8px 9px;
+  box-shadow: 0px 4px 15px rgba($white, 11%);
+  margin-bottom: 25px;
+  &:hover{
+    background: darken($white, 5%);
+    transition: all 0.3s ease-in-out;
+  }
+}
+.kl-btn-delete-option{
+  background: $gray_sixth !important;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s;
+  &:hover{
+    background: $navy_blue !important;
+  }
+}
+.kl-btn-return{
+  font-weight: $bold;
+  font-size: 14px;
+  line-height: 17px;
+  color: $yellow_theme;
+  background: transparent;
+  border: none;
+}

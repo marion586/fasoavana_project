@@ -1,0 +1,772 @@
+.kl-big-title {
+    h1 {
+        font-size: 28px;
+        font-weight: $bold;
+        line-height: 34px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #261C0F;
+        margin-bottom: 15px;
+    }
+}
+
+.legend-indicator {
+    box-sizing: border-box;
+    width: 30.42px;
+    height: 17px;
+    background: #261C0F;
+    border: 1px solid #DFE3E8;
+    border-radius: 0;
+    margin-right: 9.58px;
+
+    &.bg-purple-light {
+        background-color: #261C0F;
+    }
+
+    &.bg-pink {
+        background-color: $yellow_theme;
+    }
+}
+
+.kl-chart-nav {
+    box-sizing: border-box;
+    width: 201px;
+    height: 26px;
+    background: $white;
+    border: 1px solid #CBCFD3;
+    border-radius: 29px;
+    padding: 0;
+    overflow: hidden;
+
+    li {
+        a {
+            font-style: normal;
+            font-weight: $light;
+            font-size: 12px !important;
+            line-height: 24px;
+            padding: 0 !important;
+            transition: none;
+            color: #261C0F !important;
+            &.active {
+                color: $white !important;
+                box-sizing: border-box;
+                font-weight: $bold;
+                height: 24px;
+                background-color: $yellow_theme !important;
+                border: none;
+                border-radius: 0;
+            }
+        }
+    }
+}
+
+.kl-chart-wrapper {
+    .card {
+        background: #FFFFFF;
+        border-radius: 5px;
+        border: none;
+        box-shadow: none !important;
+        .card-header {
+            border-bottom: 0;
+            .kl-indicator span {
+                font-style: normal;
+                font-weight: $medium;
+                font-size: 12px;
+                line-height: 15px;
+                color: #B7BABE;
+            }
+        }
+
+        .card-body {
+            .chartjs-custom {
+                height: 272px;
+            }
+        }
+
+        
+    }
+}
+
+.kl-card-table-wrapper {
+    background-color: unset;
+    border: none;
+    box-shadow: none;
+    .card-header {
+        background-color: transparent;
+        border: none;
+
+        .kl-page-to-show {
+            @extend %text_12;
+            font-weight: $medium;
+            color: $gray_sixth;
+        }
+
+        input[type="search"] {
+            border-color: $gray_sixth;
+        }
+
+        .bi-search::before {
+            color: rgba(223, 227, 232, 1);
+        }
+    }
+
+    .card-footer {
+        background-color: $white;
+        padding-top: 50px;
+        border-radius: 5px;
+    }
+}
+
+//Make the QR modal center when the sidebar is expand
+body:not(.navbar-vertical-aside-mini-mode) .modal.kl-modal-center .modal-dialog {
+    @include media-breakpoint-up(xl) {
+        transform: translateX(115px);
+    }
+}
+.kl-drop-option{
+    padding: 2px 0;
+    min-width: 129px;
+    a{
+        font-size: 11px !important;
+        line-height: 1.81em;
+        font-weight: $regular;
+        color: $gray_sixth !important;
+        padding: 0px 15px;
+        margin-bottom: 0 !important;
+        & + a{
+            margin-top: 3px;
+        }
+        &:hover{
+            border-radius: 0 !important;
+        }
+    }
+}
+
+.kl-avatar{
+    img{
+        border-radius: 50%;
+    }
+}
+.kl-card-with-border{
+    border: 0.5px solid #E7EAF3;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 0;
+    padding-top: 14px;
+}
+.kl-stock-index-wrapper{
+    position: relative;
+    .kl-stock-index{
+        position: absolute;
+        width: 41px;
+        height: 16px;
+        background: rgba(145, 189, 255, 0.82);
+        border-radius: 5px;
+        text-align: center;
+        top: -15px;
+        right: 70px;
+        color: $white;
+        font-weight: $bold;
+    }
+}
+.kl-btn-export-pdf{
+    border-radius: 5px !important;
+}
+.kl-logo-client {
+    width: 73.27px;
+    height: 60px;
+    img{
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.kl-date-filter{
+    max-width: 407px;
+    width: 100%;
+    &:first-of-type{
+        margin-right: 21px;
+        }    
+    }
+.kl-btn-filter-detail{
+    max-width: 190px;
+    width: 100%;
+    padding: 0;
+
+    .kl-btn-filter{
+        max-width: 111px;
+        width: 100%;
+        margin-right: 18px;
+    }
+    .kl-btn-reset-filter{
+        max-width: 37px;
+        width: 100%;
+        padding: 10px 8px;
+    }
+}
+
+.kl-custom-table-detail-releve table{
+    th{
+        background-color: $white;
+        padding: 16.5px 7px !important;
+        border: 0.5px solid #E7EAF3 !important;
+        &:first-of-type{
+            width: 4%;
+            border-left: 0 !important;
+        }
+        &:nth-of-type(2){
+            width: 11%;
+        }
+        &:nth-of-type(3){
+            width: 16%;
+        }
+        &:nth-of-type(4){
+            width: 15%;
+        }
+        &:nth-of-type(5){
+            width: 20%;
+        }
+        &:nth-of-type(6){
+            width: 16%;
+        }
+        &:last-of-type{
+            width: 19%;
+            border-right: 0 !important;
+        }
+        &:not(:nth-of-type(2)){
+            text-transform: initial;
+        }
+    }
+
+    td{
+        border: 0.5px solid #E7EAF3 !important;
+    }
+
+    tfoot td{ 
+        border-left: 0 !important;
+        &:last-of-type{
+            border-right: 0 !important;
+        }
+    }
+}
+.kl-custom-table-contrats-listing table th{
+    &:after{
+        margin-left: 0.5rem !important;
+    }
+    &:first-of-type, &:nth-of-type(7){
+        width: 10% !important;
+    }
+}
+.kl-default-table-resp, .kl-custom-table-bon-livraison{
+    table{
+        min-width: 991px !important;
+    }
+}  
+.kl-custom-table-bon-livraison{
+    table thead th{
+        width: 10% !important;
+        &:nth-of-type(3){
+            width: 12% !important;
+        }
+        &:last-of-type{
+            width: 5% !important;
+        }
+    }
+}
+.kl-stock-product-table table{
+    min-width: 1099px !important;
+    thead th{
+        &:nth-of-type(6), &:nth-of-type(7){
+            width: 15% !important;
+        }
+    }
+}
+
+.kl-datepicker{
+    position: relative;
+    +  .ui-datepicker-trigger{
+        position: absolute;
+        top: 12px;
+        right: 15px;
+    }
+}
+
+.kl-file-upload-select{    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;    
+    color: #677788;
+    .kl-file-select-button{
+        background: #EDF3F9;
+        height: 36px;
+        min-width: 90px;
+        max-width: 105px;
+    }
+    .kl-file-select-name{
+        padding-left: 5px;
+        margin-right: 5px;
+        white-space: nowrap;
+        overflow-x: hidden;
+    }
+}
+.kl-custom-filter-facturation{
+    .kl-form-control{
+        padding: 6.25px 15px;
+        background-color: white;
+        border-color: #E7EAF3 !important;
+    }
+    .kl-btn-reset-filter{
+        padding: 6px 8px;
+    }
+    .kl-custom-select-two .select2.select2-container--default .select2-selection--single{
+        border-radius: 5px;
+    }
+}
+.kl-state{
+    width: 73px;
+    height: 21px;
+    border-radius: 4px;
+    color: $white;
+    font-size: 10px;
+    text-align: center;
+    padding-top: 2px;
+}
+.kl-state-red{
+    background: #FF5656;
+}
+.kl-state-green{
+    background: #53E77C;
+}
+.kl-custom-table-two-line{
+    table .sorting::after {
+        top: 50% !important;
+    }
+}
+.kl-custom-table-doc-list, .kl-custom-table-facture-list{
+    table {
+        table-layout: auto;
+        @include media-breakpoint-up(md){
+            min-width: 1317px !important;
+        }
+        thead th{
+            &:first-of-type{
+                width: 8% !important;
+            }
+            &:nth-of-type(2){
+                width: 5% !important;
+            }
+            &:nth-of-type(3){
+                width: 10% !important;
+            }
+            &:nth-of-type(4){
+                width: 5% !important;
+            }
+            &:nth-of-type(5){
+                width: 9% !important;
+            }
+            &:nth-of-type(6){
+                width: 8% !important;
+            }
+            &:nth-of-type(7){
+                width: 7% !important;
+            }
+            &:nth-of-type(8){
+                width: 9% !important;
+            }
+            &:nth-of-type(9){
+                width: 10% !important;
+            }
+            &:nth-of-type(10){
+                width: 4% !important;
+            }
+            &:last-of-type{
+                width: 12% !important;
+            }
+        
+        }
+    }
+}
+.kl-custom-table-facture-retour{
+    table {
+        thead th{
+            &:first-of-type{
+                width: 9% !important;
+            }
+            &:nth-of-type(2){
+                width: 5% !important;
+            }
+            &:nth-of-type(3){
+                width: 12% !important;
+            }
+            &:nth-of-type(4){
+                width: 5% !important;
+            }
+            &:nth-of-type(5){
+                width: 9% !important;
+            }
+            &:nth-of-type(6){
+                width: 8% !important;
+            }
+            &:nth-of-type(7){
+                width: 12% !important;
+            }
+            &:nth-of-type(8){
+                width: 12% !important;
+            }
+        
+        }
+    }
+}
+.kl-add-customer{
+    color: $yellow_theme;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.nav-vertical.nav-pills .nav-item .nav-collapse.show .nav-link.active{
+    background-color: $yellow_theme !important;
+}
+.kl-custom-padding-proforma{
+    padding: 6.25px 8px !important;
+}
+.kl-custom-bg-filter {
+   .select2.select2-container--default .select2-selection--single, input{
+    background-color: $gray_bg_input !important;
+   }
+} 
+.kl-head-view-invoice{
+    p{
+        margin-bottom: 2px;
+    }
+    .kl-head-view-right{
+        span{
+            position: absolute;
+            left: -70px;
+        }
+    }
+}
+.kl-total-amount{
+    height: 37px;
+    color: $gray_sixth;
+    font-size: 14px;
+    border: 0.5px solid #CBCFD3;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.kl-custom-add-bon-datepicker{
+    width: 325px;
+}
+
+input[type=number]::-webkit-outer-spin-button, 
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: inner-spin-button !important;
+    position: absolute;
+    top: 0; bottom: 0;
+    right: 0;
+    margin: auto;
+    transform: scale(5);
+    transform-origin: right center;
+    opacity: 0;
+    cursor: pointer;
+}
+
+input[type=number]::-webkit-contacts-auto-fill-button {
+    opacity: 0;
+}
+
+.kl-input-number{
+    position: relative;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        right: 20px;
+        pointer-events: none;
+        background-image: url('../img/icon/arrow-up.svg');
+        background-size: 10px 10px;
+        width: 10px;
+        height: 10px;
+      }
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+        right: 20px;
+        pointer-events: none;
+        background-image: url('../img/icon/arrow-down.svg');
+        background-size: 10px 10px;
+        width: 10px;
+        height: 10px;
+      }
+}
+.kl-btn-export{
+    margin-right: 15px;
+}
+.kl-custom-table-list-proforma table th{
+    &:first-of-type::after{
+        right: 160px;
+    }
+    &:nth-of-type(2)::after, &:nth-of-type(3)::after, &:nth-of-type(4)::after{
+        right: 100px;
+    }
+}
+.kl-custom-card-contrats .card-header{
+    border: 0.5px solid #E7EAF3;
+    padding-top: 20px !important;
+}
+.kl-stock-new-product, .kl-stock-new-bon-entree, .kl-stock-new-bon-sortie{
+    form label{
+        max-width: 125px;
+        width: 100%;
+    }
+}
+.kl-contrats-detail .kl-form-control{
+    color: #677788 !important;
+}
+.kl-rapport-card-body{
+    padding: 0;
+    .kl-table-rapport-total{
+        margin-bottom: 85px;
+        thead th{
+            border: 0.5px solid #E7EAF3;
+            padding: 26px;
+            text-align: center;
+        }
+        tbody{
+            tr{
+                &:first-of-type, &:nth-of-type(3){
+                    td{
+                        border-left: 0;
+                        border-right: 0;
+                        padding: 24px;
+                    }
+                }
+                td{
+                    padding: 16px;
+                    border: 0.5px solid #E7EAF3;
+                    text-transform: uppercase;
+                }
+            }
+        } 
+    }
+    .kl-rapport-recap{
+        margin-bottom: 36px;
+        table {
+            text-align: center;
+            td{
+                border: 0.5px solid #E7EAF3;
+            }
+            .kl-empty-bloc{
+                width: 24%;
+                background-color: #E8F3E9;
+            }
+        }
+    }
+    .kl-contribution-cash{
+        margin-bottom: 67px;
+        table{
+            text-align: center;
+            td{
+                border: 0.5px solid $gray_border_table;
+                padding: 13px;
+                &.kl-empty-cell{
+                    width: 4%;
+                }
+            }
+        }
+    }
+}
+.kl-custm-about-provider{
+    max-width: 999px;
+}
+.kl-profitability-report{
+    border-radius: 10px;
+    .card-body{
+        border-radius: 10px;
+    }
+    .nav-tabs button{
+        border-radius: 5px;
+        border: 1px solid transparent;
+        color: #8C98A4;
+        &.active{
+            background: $yellow_theme;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+            color: $white;
+            border-color: transparent;
+        }
+        &:hover{
+            border: 1px solid $yellow_theme;
+            background: transparent;
+            color: #8C98A4;
+        }
+    }
+    .tab-content{
+        .kl-month-forecast-title {
+            border-bottom: 0.5px solid $gray_border_table;  
+            h5{
+                font-weight: $bold;
+                font-size: 14px;
+                color: #A7B0B9;
+            }          
+        }
+        table td{
+            padding: 28px 33px;
+            font-weight: $light;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #8C98A4;
+            &.kl-amount{
+                font-size: 18px;
+                @include media-breakpoint-down(md){
+                    font-size: 16px;
+                }
+                @include media-breakpoint-down(xs){
+                font-size: 15px;
+                }
+            }
+        }
+    }
+}
+.kl-form-personal{
+    .kl-form-left-block{
+        position: relative;
+        width: 26.6%;
+        border-right: 1px solid $gray_border_table;
+        @include media-breakpoint-down(md){
+            width: 100%;
+        }
+        .kl-personal-avatar{
+            width: 100%;
+            height: auto;
+            position: absolute;
+            max-width: 152px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: calc(-152px /2 - 1.3125rem);
+            .avatar-img{
+                width: 100%;
+                height: auto;
+                max-height: 152px;
+                border: 8px solid rgba(223, 227, 232, 0.78);
+            }
+        }
+        .kl-work-quality{
+            margin-top: 85px;
+            text-align: center;
+            h5{
+                font-weight: $regular;
+                font-size: 14px;                
+                color: $gray_form_label;
+            }
+        }
+    }
+    .kl-form-right-block{
+        padding-top: 40px;
+        padding-bottom: 28px;
+        width: 73.3%;
+        @include media-breakpoint-down(md){
+            width: 100%;
+        }
+        h5{            
+            font-weight: $semi_bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: $purple_dark;
+            margin-bottom: 40px;
+        }
+
+    }
+}
+.star{
+    &:not(:last-of-type){
+        margin-right: 7.57px;
+    }
+}
+.kl-select-grid-wrapper{
+    position: relative;
+    padding-right: 0 !important;
+    background-color: #3382F9;
+    border-radius: 5px 0 0 0;
+    padding-top: 31px;
+    .kl-tom-select-custom{
+        .ts-control{
+            background: transparent;
+            border: none !important;
+            border-radius: 0 !important;
+            .ts-input{
+                opacity: 0;
+                position: absolute;
+                bottom: 5px;
+            }
+            .tom-select-custom .form-select{
+                display: block !important;
+                opacity: 1;
+                position: static;
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                color: $white !important;
+
+                .option{
+                    color: #FFFFFF;
+                    font-size: 18px;
+                    &.active{
+                        opacity: 0.2;
+                    }
+                    &:hover{                        
+                        background: linear-gradient(90deg, rgba(217, 217, 217, 0) -3.21%, rgba(217, 217, 217, 0.18) 54.14%, rgba(217, 217, 217, 0) 100%);
+                        transition: all 0.2s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+}
+.fullcalendar-custom.fc{
+    .fc-event-title{
+        color: $white !important;
+        font-size: 11px;
+    }
+    .fc-daygrid-day-number{
+        color:#DDDDDD !important;
+    }
+    .fc-daygrid-event-harness:not(:last-of-type){
+        margin-bottom: 12px;
+    }
+    .fc-daygrid-event{
+        border-radius: 5px;
+        padding: 2px 5px;
+        text-align: center;
+    }
+    .fc-col-header-cell-cushion{
+        font-weight: $bold;
+        font-size: 14px;
+        color: $gray_ten;
+        text-transform: capitalize !important;
+    }
+}
+.kl-calendar-datepicker + .ui-datepicker-trigger{
+    display: none;
+}
+.kl-custom-select-two-calendar .select2.select2-container--default .select2-selection--single {    
+    border: none;
+    background-color: transparent !important;
+}
+.kl-custom-input-calendar{
+    border: none !important;
+    background-color: transparent !important;
+}
+.kl-today-btn{
+    border: 1px solid transparent;
+    padding: 7px 21px !important;
+    border-radius: 6px !important;
+    &:hover{
+        color: $gray_ten !important;
+        background-color: transparent !important;
+        border: 1px solid $gray_ten;
+    }
+}
+.kl-calendar-header{
+    padding: 26px 13px;
+}
+  
