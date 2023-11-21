@@ -24,12 +24,16 @@ app.use("/material", material);
 const PORT = process.env.PORT || 3002;
 console.log("uri", process.env.MONGO_URL);
 mongoose
-  .connect("mongodb://localhost:27017/fidy", {
+  .connect(process.env.MONGO_URL, {
     useNewURLParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+    app.listen(PORT, () =>
+      console.log(
+        `Server Port: ${PORT} and dabase url ${process.env.MONGO_URL}`
+      )
+    );
     //Add Data One time
     // User.insertMany(users);
     // Post.insertMany(posts)

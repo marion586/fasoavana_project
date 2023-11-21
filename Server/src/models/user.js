@@ -45,10 +45,10 @@ const userSchema = new Schema(
       trim: true,
       required: true,
     },
-    customerStripeId: {
-      type: String,
-      required: true,
-    },
+    // customerStripeId: {
+    //   type: String,
+    //   required: true,
+    // },
   },
   { timestamps: { createdAt: "created_at" } }
 );

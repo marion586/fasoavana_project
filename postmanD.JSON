@@ -1,0 +1,32 @@
+//addmaterial
+{
+  "user": {
+    "id": 1
+  },
+
+  "name": "table",
+  "category": "meuble",
+  "description": "this a description about the material",
+  "marque": "dell",
+  "color": "red",
+  "status": "disponible",
+  "image": "image"
+}
+
+//signup
+{
+    "firstName": "marion",
+    "lastName": "menye",
+    "email": "marionmenye@gmail.com",
+    "password": "marion",
+    "image":"imag",
+    "typeUser": "admin",
+    "tel": "0347351927",
+    "address": "ambolokandrina"
+}
+
+//login 
+{
+    "email" : "marionmenye@gmail.com",
+    "password" :"marion"
+}

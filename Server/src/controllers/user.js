@@ -37,15 +37,15 @@ export const signUp = async (req, res) => {
     });
   }
   const hashedPassword = await bcrypt.hash(password, 10);
-  console.log(process.env.STRIPE_SECRET_KEY);
-  const customer = await stripe.customers.create(
-    {
-      email,
-    },
-    {
-      apiKey: process.env.STRIPE_SECRET_KEY,
-    }
-  );
+  // console.log(process.env.STRIPE_SECRET_KEY);
+  // const customer = await stripe.customers.create(
+  //   {
+  //     email,
+  //   },
+  //   {
+  //     apiKey: process.env.STRIPE_SECRET_KEY,
+  //   }
+  // );
 
   const newUser = await User.create({
     firstName,
@@ -54,7 +54,7 @@ export const signUp = async (req, res) => {
     image,
     email,
     password: hashedPassword,
-    customerStripeId: customer.id,
+    // customerStripeId: customer.id,
     tel,
     address,
   });
@@ -80,7 +80,7 @@ export const signUp = async (req, res) => {
         image: newUser.image,
         tel: newUser.tel,
         address: newUser.address,
-        stripeCustomerId: customer.id,
+        // stripeCustomerId: customer.id,
       },
     },
   });

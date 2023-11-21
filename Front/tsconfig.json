@@ -24,11 +24,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@apps/*":["src/apps/*"],
-      "@modules/*":["src/modules/*"],
-      "@shared/*":["src/shared/*"],
-      "@widgets/*":["src/widgets/*"],
-      "@routes/*":["src/routes/*"],
+      "@apps/*": ["src/apps/*"],
+      "@modules/*": ["src/modules/*"],
+      "@shared/*": ["src/shared/*"],
+      "@widgets/*": ["src/widgets/*"],
+      "@routes/*": ["src/routes/*"]
     }
   },
   "include": ["src"],
