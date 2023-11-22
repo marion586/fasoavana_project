@@ -3,9 +3,9 @@ import { Order, Pagination } from "@/shared/models/data.model";
 
 export type RequestBank = {
   "bankContacts.firstname"?: string;
-  "order[id]"?: Order
-  abbreviation?: string
-  country?: string; 
+  "order[id]"?: Order;
+  abbreviation?: string;
+  country?: string;
   sort?: string | undefined;
   keyword?: string;
   page: number;
@@ -30,7 +30,7 @@ export type AddBankModel = {
   email: string;
   website: string;
   country: any;
-}
+};
 
 export type BankModel = {
   id: number;
@@ -70,4 +70,13 @@ export type Country = {
   code?: string;
   nameEn: string;
   nameFr: string;
+};
+
+export type materialObject = {
+  name: string;
+  category: { value: number; label: string }[];
+  description: string;
+  marque: string;
+  color: string;
+  image: string;
 };

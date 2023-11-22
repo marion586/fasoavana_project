@@ -6,7 +6,7 @@ const materialSchema = new Schema(
   {
     user: {
       type: Object,
-      required: true,
+      required: false,
     },
 
     name: {
@@ -34,7 +34,7 @@ const materialSchema = new Schema(
     status: {
       type: String,
       trim: true,
-      required: true,
+      default: "disponible",
     },
     image: {
       type: String,

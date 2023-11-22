@@ -3,13 +3,13 @@ import { CustomHeader } from "./CustomHeader";
 import { ActionsCell } from "./ActionsCell";
 import { BankModel } from "../../core/models/bank.model";
 import { CountryCell } from "./CountryCell";
-export const bankColumns: ReadonlyArray<Column<BankModel>> = [
+export const bankColumns: ReadonlyArray<Column<any>> = [
   {
     Header: (props) => (
       <CustomHeader
         tableProps={props}
         className="py-3 px-6 text-left"
-        title="BANQUE"
+        title="Nom"
       />
     ),
     accessor: "entitled",
@@ -19,34 +19,41 @@ export const bankColumns: ReadonlyArray<Column<BankModel>> = [
       <CustomHeader
         tableProps={props}
         className="py-3 px-6 text-left"
-        title="ABRÉVIATION"
+        title="Categories"
       />
     ),
-    accessor: "abbreviation",
+    accessor: "categories",
   },
   {
-   Header: (props) => (
-     <CustomHeader
-       tableProps={props}
-       className="py-3 px-6 text-left"
-       title="TÉLÉPHONE"
-     />
-   ),
-   accessor: "phone",
- },
- {
-   Header: (props) => (
-     <CustomHeader
-       tableProps={props}
-       className="py-3 px-6 text-left"
-       title="CODE SWIFT"
-     />
-   ),
-   accessor: "country",
-   Cell: ({ ...props }) => (
-      <CountryCell bank={props.data[props.row.index]} />
+    Header: (props) => (
+      <CustomHeader
+        tableProps={props}
+        className="py-3 px-6 text-left"
+        title="Marque"
+      />
     ),
- },
+    accessor: "marque",
+  },
+  {
+    Header: (props) => (
+      <CustomHeader
+        tableProps={props}
+        className="py-3 px-6 text-left"
+        title="COULEUR"
+      />
+    ),
+    accessor: "color",
+  },
+  {
+    Header: (props) => (
+      <CustomHeader
+        tableProps={props}
+        className="py-3 px-6 text-left"
+        title="IMAGE"
+      />
+    ),
+    accessor: "image",
+  },
   {
     Header: (props) => (
       <CustomHeader
@@ -56,8 +63,6 @@ export const bankColumns: ReadonlyArray<Column<BankModel>> = [
       />
     ),
     id: "actions",
-    Cell: ({ ...props }) => (
-      <ActionsCell bank={props.data[props.row.index]} />
-    ),
+    Cell: ({ ...props }) => <ActionsCell bank={props.data[props.row.index]} />,
   },
 ];
