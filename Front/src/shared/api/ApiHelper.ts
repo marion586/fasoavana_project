@@ -8,7 +8,7 @@ import axios from "axios";
 import { store } from "@/apps/store";
 import { setCurrentUser, setValidToken } from "@/modules/auth/core/actions";
 const api = axios.create({
-  baseURL: import.meta.env.VITE_APP_API_URL_DEV
+  baseURL: import.meta.env.VITE_APP_API_URL_DEV,
 });
 
 // Intercepteur de requêtes
@@ -38,19 +38,18 @@ api.interceptors.response.use(
       originalRequest._retry = true;
       try {
         // Appeler l'API pour rafraîchir le jeton en utilisant le refreshToken
-      const newToken = await postRefreshToken({ refresh_token: refreshToken });
-      console.log(newToken);
-      if(newToken.status.toString().includes("2")){
-         setItemToLocalStorage(
-        "current_user",
-        JSON.stringify(newToken.data)
-      );
-      store.dispatch(setCurrentUser(newToken.data))
-      }
-      return api(originalRequest);
+        const newToken = await postRefreshToken({
+          refresh_token: refreshToken,
+        });
+        console.log(newToken);
+        if (newToken.status.toString().includes("2")) {
+          setItemToLocalStorage("current_user", JSON.stringify(newToken.data));
+          store.dispatch(setCurrentUser(newToken.data));
+        }
+        return api(originalRequest);
       } catch (error) {
-        store.dispatch(setCurrentUser(null))
-        store.dispatch(setValidToken(false))
+        store.dispatch(setCurrentUser(null));
+        store.dispatch(setValidToken(false));
       }
     }
     return Promise.reject(error);

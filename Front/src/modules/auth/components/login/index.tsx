@@ -7,16 +7,16 @@ import { LuEye, LuEyeOff } from "react-icons/lu";
 import { useDispatch } from "react-redux";
 import { setCurrentUser, setValidToken } from "../../core/actions";
 import { useNavigate } from "react-router-dom";
-import { postLogin } from "../../core/services/_request";
+import authService from "../../core/services/_request";
 import { AxiosResponse } from "axios";
 import Spinner from "@/shared/components/Spinner";
-import {toast} from 'react-toastify'
+import { toast } from "react-toastify";
 type LoginModel = {
-  username: string;
+  email: string;
   password: string;
 };
 const initStateLogin: LoginModel = {
-  username: "",
+  email: "",
   password: "",
 };
 const Login = () => {
@@ -29,7 +29,7 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  const notify = (message:string) => toast.error(message)
+  const notify = (message: string) => toast.error(message);
   const formik = useFormik({
     initialValues: initStateLogin,
     onSubmit: async (values, { setSubmitting }) => {
@@ -38,8 +38,11 @@ const Login = () => {
       setSubmitting(true);
       try {
         setIsLoading(true);
-        const login: AxiosResponse<any> | any = await postLogin(values);
-        if (login.status === 200) {
+        const login: AxiosResponse<any> | any = await authService.postLogin(
+          values
+        );
+        console.log(login);
+        if (!login.error) {
           dispatch(setCurrentUser(login.data));
           localStorage.setItem("current_user", JSON.stringify(login.data));
           dispatch(setValidToken(true));
@@ -77,10 +80,10 @@ const Login = () => {
           >
             <div className="mb-4">
               <input
-                type="username"
-                id="username"
-                {...formik.getFieldProps("username")}
-                name="username"
+                type="email"
+                id="email"
+                {...formik.getFieldProps("email")}
+                name="email"
                 className="input-auth"
                 placeholder={intl.formatMessage({ id: "YOUR_MAIL" })}
               />
