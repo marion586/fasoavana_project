@@ -7,17 +7,16 @@ function App() {
         token: {
           colorPrimary: "#FF0000",
         },
-        components:{
+        components: {
           Tabs: {
             colorPrimary: "#FF0000",
             colorPrimaryActive: "#fff",
-            colorPrimaryText:"#FFF",
+            colorPrimaryText: "#FFF",
             colorPrimaryHover: "#FF0000",
-            borderRadius: 12,   
-            borderRadiusLG:12,  
+            borderRadius: 12,
+            borderRadiusLG: 12,
           },
-          
-        }
+        },
       }}
     >
       <Outlet />

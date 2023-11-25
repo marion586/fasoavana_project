@@ -30,8 +30,16 @@ const AsideBar = ({ expandSidebar }: Props) => {
         </Link>
       </div>
       <ul className={"menu pr-7"}>
-        <MenuItem to="/materials">Liste des materials</MenuItem>
-        <Dropdown basePath="client/" icon={<BiUser />} text="Besoin">
+        <MenuItem to="/materials">
+          <RiFileShredLine />
+          Liste des materiels
+        </MenuItem>
+        <MenuItem to="/materials">
+          <RiFileShredLine />
+          Liste des materiels
+        </MenuItem>
+
+        {/* <Dropdown basePath="client/" icon={<BiUser />} text="Besoin">
           <MenuItem to="/client/1">Liste des clients</MenuItem>
           <MenuItem to="/client/2">Besoins</MenuItem>
         </Dropdown>
@@ -49,9 +57,9 @@ const AsideBar = ({ expandSidebar }: Props) => {
             Bons de commandes
           </MenuItem>
           <MenuItem to="/procurement/3">Dossier import</MenuItem>
-        </Dropdown>
+        </Dropdown> */}
         {/*<Dropdown basePath="alerts/" icon={<HiOutlineBellAlert className={clsx('rotate-45',{"ml-3":expandSidebar})} />} text={expandSidebar ? "": "Alert"} />*/}
-        <Dropdown
+        {/* <Dropdown
           basePath="/stocks-management/"
           icon={<BsPersonGear />}
           text={expandSidebar ? "" : "Exploitation stock"}
@@ -68,35 +76,7 @@ const AsideBar = ({ expandSidebar }: Props) => {
           <MenuItem to="/movement-management/livraison">
             Bons de livraison
           </MenuItem>
-        </Dropdown>
-        <Dropdown
-          basePath="setting/"
-          icon={<AiOutlineSetting />}
-          text="Paramètres"
-          isActive
-        >
-          <MenuItem to="/setting/quality">Qualités</MenuItem>
-          <MenuItem to="/setting/fare-category">Catégories tarifaires</MenuItem>
-          <MenuItem to="/setting/risque-code">Code risques</MenuItem>
-          <MenuItem to="/setting/region">Régions</MenuItem>
-          <MenuItem to="/setting/role">Rôles</MenuItem>
-          <MenuItem to="/setting/user">Utilisateurs</MenuItem>
-          <MenuItem to="/setting/conditions">Conditionnements</MenuItem>
-          <MenuItem to="/setting/warehouse">Entrepôts</MenuItem>
-          <MenuItem to="/setting/emplacements">Code Emplacements</MenuItem>
-          <MenuItem to="/setting/units">Unités</MenuItem>
-          <MenuItem to="/setting/catalogues">Catalogues</MenuItem>
-          <MenuItem to="/setting/family">Familles / Sous familles</MenuItem>
-          <MenuItem to="/setting/provider-type">Type de fournisseurs</MenuItem>
-          <MenuItem to="/setting/bank">Banques</MenuItem>
-          <MenuItem to="/setting/currency">Devises</MenuItem>
-          <MenuItem to="/setting/icoterms">Incoterms</MenuItem>
-          <MenuItem to="/setting/echeance">Échéances</MenuItem>
-          <MenuItem to="/setting/histories-actions">
-            Historique des actions
-          </MenuItem>
-          {/* <MenuItem to="/setting/client-type">Type de clients</MenuItem>*/}
-        </Dropdown>
+        </Dropdown> */}
       </ul>
     </aside>
   );

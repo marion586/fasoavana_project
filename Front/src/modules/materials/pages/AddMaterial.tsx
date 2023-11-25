@@ -6,6 +6,7 @@ import MaterialService from "../core/services/_requests";
 import Loading from "@/shared/components/Loading";
 import { useDispatch } from "react-redux";
 import { setLoadingRequest } from "../core/reducers/bank.reducer";
+import BackButton from "@/shared/components/backButton";
 const dataCat = [
   {
     value: "",
@@ -78,7 +79,8 @@ const AddMaterial = () => {
   if (loading) return <Loading loading={loading} />;
   return (
     <div className="bg-white py-3 px-4 w-[99%]">
-      <div>
+      <div className="flex justify-start gap-[10%] items-center">
+        <BackButton />
         <h1 className="text-[20px] font-[500] text-black">
           {" "}
           Liste des materiels - {idMaterial ? <>Modifier</> : <>Nouveau</>}{" "}

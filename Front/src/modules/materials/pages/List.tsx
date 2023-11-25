@@ -17,10 +17,14 @@ const List = () => {
   useEffect(() => {
     dispatch(fetchMaterials());
   }, [dispatch, request]);
+
+  const handleSearch = (e: any) => {
+    console.log(e.target.value);
+  };
   return (
     <LvCard>
       <LvHearder title="Materiels" to="create" />
-      <SearchGloblal />
+      <SearchGloblal handleSearch={handleSearch} />
       <Table />
       <Pagination />
     </LvCard>

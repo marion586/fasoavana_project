@@ -1,17 +1,20 @@
+import { BiSearch } from "react-icons/bi";
 import { FaSearch } from "react-icons/fa";
+type Iprops = {
+  handleSearch: (e: any) => void;
+};
 
-export const SearchGloblal = () => {
+export const SearchGloblal = ({ handleSearch }: Iprops) => {
   return (
-    <div className="mt-4 mb-3 flex justify-end">
-      <div className="flex items-center gap-2 justify-end">
-        <div className="h-[16px] w-[16px] text-[#677788]">
-          <FaSearch />
-        </div>
+    <div className="mt-4 mb-3 flex justify-end h-[40px]">
+      <div className="searchbar flex items-center h-full w-full max-w-[300px] ml-10">
+        <BiSearch className="text-xl mr-3" />
         <input
-          className="peer h-full w-full outline-none text-sm text-[#677788] pr-2"
           type="text"
-          id="search"
-          placeholder=""
+          name="search"
+          placeholder="Recherche"
+          onChange={handleSearch}
+          className="bg-transparent w-full h-full px-3 rounded-full hover:bg-white transition-all"
         />
       </div>
     </div>
