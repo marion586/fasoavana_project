@@ -12,6 +12,7 @@ import { useLoading } from "../../lib";
 import { setLoadingRequest } from "../../core/reducers/bank.reducer";
 import { toast } from "react-toastify";
 import * as yup from "yup";
+import { useDispatch } from "react-redux";
 
 const materialSchema = yup.object().shape({
   name: yup.string().required("required"),
@@ -23,46 +24,57 @@ const materialSchema = yup.object().shape({
 });
 type contactProps = {
   initialFieldValue?: materialObject | any;
+  categoryData: any;
 };
 
-export const MaterialForm = ({ initialFieldValue }: contactProps) => {
+export const MaterialForm = ({
+  initialFieldValue,
+  categoryData,
+}: contactProps) => {
   const navigate = useNavigate();
   const loading = useLoading();
+  const dispatch = useDispatch();
   const [urlImgData, setUrlImgData] = useState<string>("");
   const [inputFile, setInputFile] = useState<string>("");
-  const [category, setCategory] = useState<any>({
-    value: "",
-    label: "",
-  });
+  const [requiredPicture, setRequiredPicture] = useState(false);
+  const [category, setCategory] = useState<any>(initialFieldValue.category);
   const { idMaterial } = useParams<{ idMaterial: string | undefined }>();
   const formik = useFormik({
     initialValues: initialFieldValue,
     onSubmit: async (values) => {
-      setLoadingRequest(true);
+      dispatch(setLoadingRequest(true));
       try {
-        console.log(values);
+        console.log(values, idMaterial);
         const newData = {
           ...values,
           image: urlImgData,
           category: category.value,
         };
-        const response = await MaterialService.addMaterial(newData);
-        setLoadingRequest(false);
-        toast.success("matériel crée avec success", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+
+        const response = idMaterial
+          ? await MaterialService.updateMaterialById(idMaterial, newData)
+          : await MaterialService.addMaterial(newData);
+        dispatch(setLoadingRequest(false));
+        toast.success(
+          idMaterial
+            ? "Mise à jour de materiel efectuer"
+            : "matériel crée avec success",
+          {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          }
+        );
         navigate(-1);
         console.log("data response", response);
       } catch (error) {
-        setLoadingRequest(false);
-        toast.success("un erreur au création du matériel", {
+        dispatch(setLoadingRequest(false));
+        toast.success("un erreur au création ou mise à jour du matériel", {
           position: "top-right",
           autoClose: 2000,
           hideProgressBar: false,
@@ -78,9 +90,6 @@ export const MaterialForm = ({ initialFieldValue }: contactProps) => {
   // useEffect(() => {
   //   console.log(urlImgData);
   // }, [urlImgData]);
-
-  if (loading) return <Loading loading={loading} />;
-
   function handleDeletePhoto() {
     setUrlImgData("");
     setInputFile("");
@@ -98,6 +107,12 @@ export const MaterialForm = ({ initialFieldValue }: contactProps) => {
 
     console.log(urlImgData);
   }
+  useEffect(() => {
+    if (urlImgData) {
+      setRequiredPicture(false);
+    }
+  }, [urlImgData]);
+  if (loading) return <Loading loading={loading} />;
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -128,12 +143,12 @@ export const MaterialForm = ({ initialFieldValue }: contactProps) => {
               </div>
               <Select
                 id="category"
-                options={initialFieldValue.category}
+                options={categoryData}
                 styles={selectCustomStyle}
                 className="w-full"
                 required={true}
                 isClearable={true}
-                value={category}
+                value={initialFieldValue.category}
                 onChange={(c) => {
                   console.log(c);
                   setCategory(c);
@@ -200,6 +215,7 @@ export const MaterialForm = ({ initialFieldValue }: contactProps) => {
                 </label>
               </div>
               <input
+                required={requiredPicture}
                 type="file"
                 id="image"
                 {...formik.getFieldProps("image")}

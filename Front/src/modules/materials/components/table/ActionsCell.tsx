@@ -6,12 +6,13 @@ import { Modal } from "antd";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BankModel } from "../../core/models/bank.model";
-import { deleteBankById } from "../../core/requests/delete_requests";
+
 import Spinner from "@/shared/components/Spinner";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/apps/store";
 import { fetchMaterials } from "../../core/actions";
 import { useRequest } from "../../lib";
+import MaterialService from "../../core/services/_requests";
 
 type Props = {
   bank: BankModel;
@@ -31,7 +32,7 @@ export const ActionsCell: FC<Props> = ({ bank }: any) => {
   const handleOk = async () => {
     try {
       setLoading(true);
-      const response = await deleteBankById(bank._id);
+      const response = await MaterialService.deleteMaterialById(bank._id);
       dispatch(fetchMaterials());
       console.log(response);
       notify();
@@ -48,7 +49,12 @@ export const ActionsCell: FC<Props> = ({ bank }: any) => {
   };
 
   const onEditSingleBank = () => {
-    navigate(`edit/${bank.id}`, {
+    navigate(`edit/${bank._id}`, {
+      state: bank,
+    });
+  };
+  const detailsSingleMaterial = () => {
+    navigate(`details/${bank._id}`, {
       state: bank,
     });
   };
@@ -62,7 +68,10 @@ export const ActionsCell: FC<Props> = ({ bank }: any) => {
         onClick={() => showModal()}
         className="w-5 h-5  transform hover:cursor-pointer hover:text-purple-500 hover:scale-110"
       />
-      <BsEye className="w-5 h-5  transform hover:cursor-pointer hover:text-purple-500 hover:scale-110" />
+      <BsEye
+        onClick={detailsSingleMaterial}
+        className="w-5 h-5  transform hover:cursor-pointer hover:text-purple-500 hover:scale-110"
+      />
       <Modal
         maskClosable={false}
         centered
