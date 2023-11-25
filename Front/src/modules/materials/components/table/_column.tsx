@@ -12,7 +12,7 @@ export const bankColumns: ReadonlyArray<Column<any>> = [
         title="Nom"
       />
     ),
-    accessor: "entitled",
+    accessor: "name",
   },
   {
     Header: (props) => (
@@ -22,7 +22,7 @@ export const bankColumns: ReadonlyArray<Column<any>> = [
         title="Categories"
       />
     ),
-    accessor: "categories",
+    accessor: "category",
   },
   {
     Header: (props) => (
@@ -49,11 +49,22 @@ export const bankColumns: ReadonlyArray<Column<any>> = [
       <CustomHeader
         tableProps={props}
         className="py-3 px-6 text-left"
-        title="IMAGE"
+        title="STATUS"
       />
     ),
-    accessor: "image",
+    accessor: "status",
   },
+  {
+    Header: (props) => (
+      <CustomHeader
+        tableProps={props}
+        className="py-3 px-6 text-left"
+        title="DATE"
+      />
+    ),
+    accessor: "created_at",
+  },
+
   {
     Header: (props) => (
       <CustomHeader

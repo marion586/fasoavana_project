@@ -14,24 +14,26 @@ import { famillyReducer } from "@/modules/settings-managements/familly-sub-famil
 import { countryReducer } from "@/shared/common/redux/countries/core/reducer/country.reducer";
 import { articleFormReducer } from "@/modules/stocks-managements/articles/core/reducers/acticleForm.reducer";
 import { unitReducer } from "@/modules/settings-managements/units/core/reducers/unit.reducer";
+import { materialsReducer } from "@/modules/materials/core/reducers/bank.reducer";
 
 export const store = configureStore({
   reducer: {
     currentUser: userReducer,
     accessTokenState: accessTokenReducer,
-    usersData: usersReducer,
-    qualitiesData: qualitiesReducer,
-    banksData: banksReducer,
-    articleData: articleReducer,
-    roleData: roleReducer,
-    conditionsData : conditionsReducer,
-    emplacementsData: emplacementReducer,
-    warehouseData:WarehousesReducer,
-    catalogData: catalogReducer,
-    famillyData: famillyReducer,
-    countryData: countryReducer,
-    articleDataForm: articleFormReducer,
-    unitData: unitReducer 
+    materials: materialsReducer,
+    // usersData: usersReducer,
+    // qualitiesData: qualitiesReducer,
+    // banksData: banksReducer,
+    // articleData: articleReducer,
+    // roleData: roleReducer,
+    // conditionsData : conditionsReducer,
+    // emplacementsData: emplacementReducer,
+    // warehouseData:WarehousesReducer,
+    // catalogData: catalogReducer,
+    // famillyData: famillyReducer,
+    // countryData: countryReducer,
+    // articleDataForm: articleFormReducer,
+    // unitData: unitReducer
   },
 });
 

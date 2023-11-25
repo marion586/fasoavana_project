@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { FiEdit3 } from "react-icons/fi";
-import { GoTrash } from "react-icons/go";
+import { BsEye } from "react-icons/bs";
+import { GoTrashcan } from "react-icons/go";
 import { Modal } from "antd";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -9,13 +10,14 @@ import { deleteBankById } from "../../core/requests/delete_requests";
 import Spinner from "@/shared/components/Spinner";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/apps/store";
-import { fetchBanks } from "../../core/actions";
+import { fetchMaterials } from "../../core/actions";
 import { useRequest } from "../../lib";
 
 type Props = {
   bank: BankModel;
 };
-export const ActionsCell: FC<Props> = ({ bank }) => {
+export const ActionsCell: FC<Props> = ({ bank }: any) => {
+  console.log(bank);
   const dispatch: AppDispatch = useDispatch();
   const request = useRequest();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,8 +31,8 @@ export const ActionsCell: FC<Props> = ({ bank }) => {
   const handleOk = async () => {
     try {
       setLoading(true);
-      const response = await deleteBankById(bank.id);
-      dispatch(fetchBanks(request));
+      const response = await deleteBankById(bank._id);
+      dispatch(fetchMaterials());
       console.log(response);
       notify();
       setIsModalOpen(false);
@@ -51,15 +53,16 @@ export const ActionsCell: FC<Props> = ({ bank }) => {
     });
   };
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center gap-2">
       <FiEdit3
         onClick={onEditSingleBank}
         className="w-5 h-5 transform hover:cursor-pointer hover:text-purple-500 hover:scale-110"
       />
-      <GoTrash
+      <GoTrashcan
         onClick={() => showModal()}
         className="w-5 h-5  transform hover:cursor-pointer hover:text-purple-500 hover:scale-110"
       />
+      <BsEye className="w-5 h-5  transform hover:cursor-pointer hover:text-purple-500 hover:scale-110" />
       <Modal
         maskClosable={false}
         centered

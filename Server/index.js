@@ -22,16 +22,16 @@ app.use("/auth", auth);
 app.use("/material", material);
 
 const PORT = process.env.PORT || 3002;
-console.log("uri", process.env.MONGO_URL);
+//console.log("uri", process.env.MONGO_URL);
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(process.env.MONGO_HOST, {
     useNewURLParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
     app.listen(PORT, () =>
       console.log(
-        `Server Port: ${PORT} and dabase url ${process.env.MONGO_URL}`
+        `Server Port: ${PORT} and dabase url ${process.env.MONGO_HOST}`
       )
     );
     //Add Data One time

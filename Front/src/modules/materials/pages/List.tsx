@@ -7,16 +7,16 @@ import { Table } from "../components/table";
 import { AppDispatch } from "@/apps/store";
 import { useRequest } from "../lib";
 import { useEffect } from "react";
-import { fetchBanks } from "../core/actions";
+import { fetchMaterials } from "../core/actions";
 //import { setBankReset } from "../core/reducers/bank.reducer"
 import { useDispatch } from "react-redux";
 
 const List = () => {
   const dispatch: AppDispatch = useDispatch();
   const request = useRequest();
-  // useEffect(() => {
-  //   dispatch(fetchBanks(request));
-  // }, [dispatch, request]);
+  useEffect(() => {
+    dispatch(fetchMaterials());
+  }, [dispatch, request]);
   return (
     <LvCard>
       <LvHearder title="Materiels" to="create" />
