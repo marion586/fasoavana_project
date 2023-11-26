@@ -8,6 +8,11 @@ const materialSchema = new Schema(
       type: Object,
       required: false,
     },
+    id_boite: {
+      type: String,
+      required: false,
+      default: "",
+    },
 
     name: {
       type: String,

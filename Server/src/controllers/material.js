@@ -16,6 +16,7 @@ export const createMaterial = async (req, res) => {
 };
 
 export const getMaterial = async (req, res) => {
+  console.log("id");
   try {
     const data = await Material.find();
     return res.status(200).json({
@@ -29,8 +30,40 @@ export const getMaterial = async (req, res) => {
 
 export const getMaterialById = async (req, res) => {
   const id = req.params.id;
+  console.log("id", id);
   try {
     const material = await Material.findById(id);
+    if (!material)
+      return res.status(404).json({ message: "donné n'est existe" });
+    return res.status(200).json({
+      error: [],
+      data: material,
+    });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+export const getAllMaterialById = async (req, res) => {
+  const id = req.params.id_boite;
+  console.log("id", id, "findAll");
+  try {
+    const material = await Material.find({ id_boite: id });
+    if (!material)
+      return res.status(404).json({ message: "donné n'est existe" });
+    return res.status(200).json({
+      error: [],
+      data: material,
+    });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+export const getAllMaterialDispo = async (req, res) => {
+  console.log("id", "disponible");
+  try {
+    const material = await Material.find({ status: "disponible" });
     if (!material)
       return res.status(404).json({ message: "donné n'est existe" });
     return res.status(200).json({

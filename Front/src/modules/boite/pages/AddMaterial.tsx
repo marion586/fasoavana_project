@@ -2,62 +2,32 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MaterialForm } from "../components/form/materailForm";
-import MaterialService from "../core/services/_requests";
+import BoiteService from "../core/services/_requests";
 import Loading from "@/shared/components/Loading";
 import { useDispatch } from "react-redux";
 import { setLoadingRequest } from "../core/reducers/bank.reducer";
 import BackButton from "@/shared/components/backButton";
-const dataCat = [
-  {
-    value: "",
-    label: "-- Sélectionner --",
-  },
-  {
-    value: "portable",
-    label: "Ordi Portable",
-  },
-  {
-    value: "bureau",
-    label: "Ordi Bureau",
-  },
-  {
-    value: "mobile",
-    label: "Appareil Mobile",
-  },
-  {
-    value: "other",
-    label: "Autre materiel",
-  },
-];
+
 const AddMaterial = () => {
   const { idMaterial } = useParams();
   const [loading, setLoading] = useState(false);
   const [editMaterial, setEditMaterial] = useState<any | null>({
-    name: "",
-    category: {
-      value: "",
-      label: "-- Sélectionner --",
-    },
+    reference: "",
     description: "",
-    marque: "",
-    color: "",
-    image: "",
+    location: "",
   });
 
-  const getMaterialById = async (id: any) => {
+  const getBoiteById = async (id: any) => {
     setLoading(true);
     true;
     try {
-      const mat = await MaterialService.getMaterialById(id);
+      const mat = await BoiteService.getBoiteById(id);
       if (mat) {
         console.log(mat.data.data);
         const newEditData = {
-          name: mat.data.data.name,
-          category: dataCat.find((d) => d.value === mat.data.data.category),
+          reference: mat.data.data.reference,
           description: mat.data.data.description,
-          marque: mat.data.data.marque,
-          color: mat.data.data.color,
-          image: "",
+          location: mat.data.data.location,
         };
         console.log("newData", newEditData);
         setEditMaterial(newEditData);
@@ -71,7 +41,7 @@ const AddMaterial = () => {
 
   useEffect(() => {
     if (idMaterial) {
-      getMaterialById(idMaterial);
+      getBoiteById(idMaterial);
     }
     console.log("idMaterial", idMaterial);
   }, []);
@@ -83,11 +53,11 @@ const AddMaterial = () => {
         <BackButton />
         <h1 className="text-[20px] font-[500] text-black">
           {" "}
-          Liste des materiels - {idMaterial ? <>Modifier</> : <>Nouveau</>}{" "}
+          Liste des boites - {idMaterial ? <>Modifier</> : <>Nouveau</>}{" "}
         </h1>
       </div>
       <div className="mt-3">
-        <MaterialForm initialFieldValue={editMaterial} categoryData={dataCat} />
+        <MaterialForm initialFieldValue={editMaterial} />
       </div>
     </div>
   );

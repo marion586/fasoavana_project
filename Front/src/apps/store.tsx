@@ -15,12 +15,13 @@ import { countryReducer } from "@/shared/common/redux/countries/core/reducer/cou
 import { articleFormReducer } from "@/modules/stocks-managements/articles/core/reducers/acticleForm.reducer";
 import { unitReducer } from "@/modules/settings-managements/units/core/reducers/unit.reducer";
 import { materialsReducer } from "@/modules/materials/core/reducers/bank.reducer";
-
+import { boitesReducer } from "@/modules/boite/core/reducers/bank.reducer";
 export const store = configureStore({
   reducer: {
     currentUser: userReducer,
     accessTokenState: accessTokenReducer,
     materials: materialsReducer,
+    boites: boitesReducer,
     // usersData: usersReducer,
     // qualitiesData: qualitiesReducer,
     // banksData: banksReducer,

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Draft, PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { fetchMaterials } from "../actions";
+import { fetchMaterials, fetchBoites } from "../actions";
 import { DataModel, Pagination } from "@/shared/models/data.model";
 import { RequestBank, ResponseBank } from "../models/bank.model";
 
-const initialState: DataModel<ResponseBank, RequestBank> = {
+const initialState: any = {
   request: {
     keyword: "",
     itemsPerPage: 10,
@@ -19,12 +19,13 @@ const initialState: DataModel<ResponseBank, RequestBank> = {
     data: [],
     pagination: {} as Pagination,
   },
+  boite: {},
   isLoading: false,
   error: null,
 };
 
 const reducer = createSlice({
-  name: "banks",
+  name: "boites",
   initialState: initialState,
   reducers: {
     setBankReset: (state: Draft<typeof initialState>) => {
@@ -46,6 +47,11 @@ const reducer = createSlice({
     setLoadingRequest: (state: any, action) => {
       state.isLoading = action.payload;
     },
+    setMateriels: (state: any, action) => {
+      state.response.data = state.response.data.filter(
+        (d: any) => d._id === action.payload
+      );
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -65,6 +71,23 @@ const reducer = createSlice({
           data: [],
           pagination: {} as Pagination,
         };
+      })
+      .addCase(fetchBoites.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchBoites.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.boite = action.payload ?? initialState.response;
+        state.error = null;
+      })
+      .addCase(fetchBoites.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+        state.boite = {
+          data: [],
+          pagination: {} as Pagination,
+        };
       });
   },
 });
@@ -74,6 +97,7 @@ export const {
   setBankReset,
   setBankResetRequest,
   setLoadingRequest,
+  setMateriels,
 } = reducer.actions;
 
-export const materialsReducer = reducer.reducer;
+export const boitesReducer = reducer.reducer;

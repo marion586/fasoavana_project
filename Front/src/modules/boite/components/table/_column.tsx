@@ -54,26 +54,26 @@ export const bankColumns: ReadonlyArray<Column<any>> = [
     ),
     accessor: "status",
   },
-  {
-    Header: (props) => (
-      <CustomHeader
-        tableProps={props}
-        className="py-3 px-6 text-left"
-        title="DATE"
-      />
-    ),
-    accessor: "created_at",
-  },
+  // {
+  //   Header: (props) => (
+  //     <CustomHeader
+  //       tableProps={props}
+  //       className="py-3 px-6 text-left"
+  //       title="DATE"
+  //     />
+  //   ),
+  //   accessor: "created_at",
+  // },
 
-  {
-    Header: (props) => (
-      <CustomHeader
-        tableProps={props}
-        className="py-3 px-6 w-[20%]"
-        title="ACTIONS"
-      />
-    ),
-    id: "actions",
-    Cell: ({ ...props }) => <ActionsCell bank={props.data[props.row.index]} />,
-  },
+  // {
+  //   Header: (props) => (
+  //     <CustomHeader
+  //       tableProps={props}
+  //       className="py-3 px-6 w-[20%]"
+  //       title="ACTIONS"
+  //     />
+  //   ),
+  //   id: "actions",
+  //   Cell: ({ ...props }) => <ActionsCell bank={props.data[props.row.index]} />,
+  // },
 ];

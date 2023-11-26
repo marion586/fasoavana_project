@@ -54,16 +54,6 @@ export const bankColumns: ReadonlyArray<Column<any>> = [
     ),
     accessor: "status",
   },
-  {
-    Header: (props) => (
-      <CustomHeader
-        tableProps={props}
-        className="py-3 px-6 text-left"
-        title="DATE"
-      />
-    ),
-    accessor: "created_at",
-  },
 
   {
     Header: (props) => (

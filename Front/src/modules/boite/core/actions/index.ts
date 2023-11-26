@@ -5,9 +5,10 @@ MaterialService;
 
 export const fetchMaterials = createAsyncThunk(
   "materials/fetchMaterials",
-  async () => {
+  async (id: any) => {
+    console.log(id);
     try {
-      const response = await MaterialService.getAllMaterials();
+      const response = await MaterialService.getAllMaterialById(id);
       return response.data;
     } catch (error: any) {
       //throw new Error(error.message);
@@ -19,3 +20,17 @@ export const fetchMaterials = createAsyncThunk(
     }
   }
 );
+
+export const fetchBoites = createAsyncThunk("boites/fetchBoites", async () => {
+  try {
+    const response = await MaterialService.getAllBoites();
+    return response.data;
+  } catch (error: any) {
+    //throw new Error(error.message);
+    return {
+      data: [] as any[],
+      pagination: {} as any,
+      error: new Error(error.message).message,
+    };
+  }
+});

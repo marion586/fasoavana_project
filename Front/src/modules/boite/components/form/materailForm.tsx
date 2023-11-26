@@ -7,37 +7,23 @@ import { useNavigate } from "react-router-dom";
 import Loading from "@/shared/components/Loading";
 import { FormattedMessage } from "react-intl";
 import { materialObject } from "../../core/models/bank.model";
-import MaterialService from "../../core/services/_requests";
+import BoiteService from "../../core/services/_requests";
 import { useLoading } from "../../lib";
 import { setLoadingRequest } from "../../core/reducers/bank.reducer";
 import { toast } from "react-toastify";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
 
-const materialSchema = yup.object().shape({
-  name: yup.string().required("required"),
-  category: yup.string().required("required"),
-  image: yup.string().required("required"),
-  description: yup.string().required("required"),
-  color: yup.string().required("required"),
-  marque: yup.string().required("required"),
-});
 type contactProps = {
   initialFieldValue?: materialObject | any;
-  categoryData: any;
 };
 
-export const MaterialForm = ({
-  initialFieldValue,
-  categoryData,
-}: contactProps) => {
+export const MaterialForm = ({ initialFieldValue }: contactProps) => {
   const navigate = useNavigate();
   const loading = useLoading();
   const dispatch = useDispatch();
   const [urlImgData, setUrlImgData] = useState<string>("");
-  const [inputFile, setInputFile] = useState<string>("");
-  const [requiredPicture, setRequiredPicture] = useState(false);
-  const [category, setCategory] = useState<any>(initialFieldValue.category);
+
   const { idMaterial } = useParams<{ idMaterial: string | undefined }>();
   const formik = useFormik({
     initialValues: initialFieldValue,
@@ -48,12 +34,11 @@ export const MaterialForm = ({
         const newData = {
           ...values,
           image: urlImgData,
-          category: category.value,
         };
 
         const response = idMaterial
-          ? await MaterialService.updateMaterialById(idMaterial, newData)
-          : await MaterialService.addMaterial(newData);
+          ? await BoiteService.updateBoiteById(idMaterial, newData)
+          : await BoiteService.addBoite(newData);
         dispatch(setLoadingRequest(false));
         toast.success(
           idMaterial
@@ -90,28 +75,7 @@ export const MaterialForm = ({
   // useEffect(() => {
   //   console.log(urlImgData);
   // }, [urlImgData]);
-  function handleDeletePhoto() {
-    setUrlImgData("");
-    setInputFile("");
-  }
 
-  function handleAddPhoto(e: any) {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      if ((e.target as any).result) {
-        setUrlImgData((e.target as any).result);
-      }
-    };
-    reader.readAsDataURL(file);
-
-    console.log(urlImgData);
-  }
-  useEffect(() => {
-    if (urlImgData) {
-      setRequiredPicture(false);
-    }
-  }, [urlImgData]);
   if (loading) return <Loading loading={loading} />;
 
   return (
@@ -121,40 +85,18 @@ export const MaterialForm = ({
           <div className="flex gap-3">
             <div className="basis-[32%]">
               <div className="mb-[10px]">
-                <label htmlFor="name" className="label uppercase">
-                  Nom
+                <label htmlFor="reference" className="label uppercase">
+                  REFERENCE
                 </label>
               </div>
               <input
                 type="text"
-                id="name"
-                {...formik.getFieldProps("name")}
-                name="name"
+                id="reference"
+                {...formik.getFieldProps("reference")}
+                name="reference"
                 className="lv-input-custom"
                 placeholder={""}
                 required={true}
-              />
-            </div>
-            <div className="basis-[32%]">
-              <div className="mb-[10px]">
-                <label htmlFor="category" className="label uppercase">
-                  categories
-                </label>
-              </div>
-              <Select
-                id="category"
-                options={categoryData}
-                styles={selectCustomStyle}
-                className="w-full"
-                required={true}
-                isClearable={true}
-                value={initialFieldValue.category}
-                onChange={(c) => {
-                  console.log(c);
-                  setCategory(c);
-                }}
-                placeholder="-- Selectionner --"
-                isSearchable
               />
             </div>
             <div className="basis-[32%]">
@@ -173,54 +115,18 @@ export const MaterialForm = ({
                 placeholder={""}
               />
             </div>
-          </div>
-          <div className="flex gap-3">
             <div className="basis-[32%]">
               <div className="mb-[10px]">
-                <label htmlFor="marque" className="label uppercase">
-                  Marque
+                <label htmlFor="location" className="label uppercase">
+                  Location
                 </label>
               </div>
               <input
                 type="text"
-                id="marque"
-                {...formik.getFieldProps("marque")}
-                name="marque"
+                id="location"
+                {...formik.getFieldProps("location")}
+                name="location"
                 required={true}
-                className="lv-input-custom"
-                placeholder={""}
-              />
-            </div>
-
-            <div className="basis-[32%]">
-              <div className="mb-[10px]">
-                <label htmlFor="color" className="label uppercase">
-                  Couleur
-                </label>
-              </div>
-              <input
-                type="text"
-                id="color"
-                {...formik.getFieldProps("color")}
-                name="color"
-                required={true}
-                className="lv-input-custom"
-                placeholder={""}
-              />
-            </div>
-            <div className="basis-[32%]">
-              <div className="mb-[10px]">
-                <label htmlFor="image" className="label uppercase">
-                  Image
-                </label>
-              </div>
-              <input
-                required={requiredPicture}
-                type="file"
-                id="image"
-                {...formik.getFieldProps("image")}
-                name="image"
-                onChange={handleAddPhoto}
                 className="lv-input-custom"
                 placeholder={""}
               />
