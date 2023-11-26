@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.2",
+    "react-barcode": "^1.4.6",
     "stripe": "^10.17.0"
   },
   "devDependencies": {

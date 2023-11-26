@@ -11,6 +11,7 @@ const PrivatesRoutes = () => {
   const StockPage = lazy(() => import("../modules/stocks-managements"));
   const HomePage = lazy(() => import("../modules/home"));
   const BoitePage = lazy(() => import("../modules/boite"));
+  const EtiquettePage = lazy(() => import("../modules/etiquette"));
   const ProcurementPage = lazy(
     () => import("@/modules/procurement-managements")
   );
@@ -40,6 +41,14 @@ const PrivatesRoutes = () => {
           element={
             <SuspenseView>
               <BoitePage />
+            </SuspenseView>
+          }
+        />
+        <Route
+          path="/etiquette/*"
+          element={
+            <SuspenseView>
+              <EtiquettePage />
             </SuspenseView>
           }
         />

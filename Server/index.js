@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import auth from "./src/routes/autRoutes/index.js";
 import material from "./src/routes/material/material.js";
 import boite from "./src/routes/boite/boite.js";
+import etiquette from "./src/routes/etiquette/etiquette.js";
 import cors from "cors";
 
 import dotenv from "dotenv";
@@ -22,6 +23,7 @@ app.use("/auth", auth);
 
 app.use("/material", material);
 app.use("/boite", boite);
+app.use("/etiquette", etiquette);
 
 const PORT = process.env.PORT || 3002;
 //console.log("uri", process.env.MONGO_URL);
