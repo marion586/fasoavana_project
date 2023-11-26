@@ -10,6 +10,7 @@ const PrivatesRoutes = () => {
   const SettingPage = lazy(() => import("../modules/settings-managements"));
   const StockPage = lazy(() => import("../modules/stocks-managements"));
   const HomePage = lazy(() => import("../modules/home"));
+  const BoitePage = lazy(() => import("../modules/boite"));
   const ProcurementPage = lazy(
     () => import("@/modules/procurement-managements")
   );
@@ -35,6 +36,14 @@ const PrivatesRoutes = () => {
           }
         />
         <Route
+          path="/boite/*"
+          element={
+            <SuspenseView>
+              <BoitePage />
+            </SuspenseView>
+          }
+        />
+        <Route
           path="/home"
           element={
             <SuspenseView>
@@ -42,22 +51,7 @@ const PrivatesRoutes = () => {
             </SuspenseView>
           }
         />
-        <Route
-          path="setting/*"
-          element={
-            <SuspenseView>
-              <SettingPage />
-            </SuspenseView>
-          }
-        />
-        <Route
-          path="stocks-management/*"
-          element={
-            <SuspenseView>
-              <StockPage />
-            </SuspenseView>
-          }
-        />
+
         <Route
           path="alerts/*"
           element={

@@ -7,7 +7,6 @@ import { BsPersonGear } from "react-icons/bs";
 import { toAbsoluteUrl } from "@/shared/libs/AssetHelpers";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { RiFileShredLine } from "react-icons/ri";
-
 type Props = {
   expandSidebar: boolean;
 };
@@ -34,9 +33,13 @@ const AsideBar = ({ expandSidebar }: Props) => {
           <RiFileShredLine />
           Liste des materiels
         </MenuItem>
-        <MenuItem to="/materials">
+        <MenuItem to="/boite">
           <RiFileShredLine />
-          Liste des materiels
+          Liste des boites
+        </MenuItem>
+        <MenuItem to="/etiquete">
+          <FaFileInvoiceDollar />
+          Etiquete d'emballage
         </MenuItem>
 
         {/* <Dropdown basePath="client/" icon={<BiUser />} text="Besoin">
