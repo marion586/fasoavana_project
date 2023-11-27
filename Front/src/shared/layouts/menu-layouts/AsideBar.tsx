@@ -22,9 +22,9 @@ const AsideBar = ({ expandSidebar }: Props) => {
       <div className="top h-30 flex items-center justify-center h-[130px]">
         <Link to="/">
           <img
+            width={60}
             src={toAbsoluteUrl("dashboard/img/logo/Spider.png")}
             alt="Logo spider"
-            className="w-[150px]"
           />
         </Link>
       </div>
@@ -37,7 +37,7 @@ const AsideBar = ({ expandSidebar }: Props) => {
           <RiFileShredLine />
           Liste des boites
         </MenuItem>
-        <MenuItem to="/etiquete">
+        <MenuItem to="/etiquette">
           <FaFileInvoiceDollar />
           Etiquete d'emballage
         </MenuItem>

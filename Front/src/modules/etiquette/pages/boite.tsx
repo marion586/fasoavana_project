@@ -14,7 +14,7 @@ const Bottle = () => {
   }, []);
   return (
     <LvCard>
-      <LvHearder title="Boites de materiels" to="create" />
+      <LvHearder showBtn={false} title="Listes des etiquettes" to="create" />
       <SearchGloblal
         handleSearch={(e) => {
           console.log(e);

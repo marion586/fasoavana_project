@@ -64,7 +64,12 @@ const Login = () => {
       <div className="sm:max-w-sm sm md:max-w-lg lg:max-w-lg md:w-full mx-auto">
         <div className="bg-white mt-8 p-6 rounded-lg shadow-3xl">
           <div className="flex flex-col items-center mb-4">
-            <img src={logo} alt="spider logo" className="object-cover" />
+            <img
+              width={100}
+              src={logo}
+              alt="spider logo"
+              className="object-cover"
+            />
           </div>
           <div className="mb-2">
             <p className="text-center font-semibold md:text-lg sm:text-sm text-black">
