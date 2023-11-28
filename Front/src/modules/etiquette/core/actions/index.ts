@@ -5,10 +5,9 @@ MaterialService;
 
 export const fetchMaterials = createAsyncThunk(
   "materials/fetchMaterials",
-  async (id: any) => {
-    console.log(id);
+  async () => {
     try {
-      const response = await MaterialService.getAllMaterialById(id);
+      const response = await MaterialService.getAllEtiquettes();
       return response.data;
     } catch (error: any) {
       //throw new Error(error.message);

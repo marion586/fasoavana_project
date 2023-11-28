@@ -39,6 +39,17 @@ export const MaterialForm = ({ initialFieldValue }: contactProps) => {
         const response = idMaterial
           ? await BoiteService.updateBoiteById(idMaterial, newData)
           : await BoiteService.addBoite(newData);
+
+        if (response && !idMaterial) {
+          console.log(response, "boite");
+          const etiquette = await BoiteService.addEtiquette({
+            id_boite: response?.data?._id,
+            reference: response?.data?.reference + "--Etiquette",
+            status: "disponnible",
+          });
+
+          console.log(etiquette);
+        }
         dispatch(setLoadingRequest(false));
         toast.success(
           idMaterial

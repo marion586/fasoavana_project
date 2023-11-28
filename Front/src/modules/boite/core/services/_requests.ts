@@ -38,4 +38,8 @@ export default class MaterialService {
   static async deleteBoiteById(id: any): Promise<any> {
     return await Http.delete(`/boite/${id}`);
   }
+
+  static async addEtiquette(data: any): Promise<any> {
+    return await Http.post("/etiquette/add", data);
+  }
 }

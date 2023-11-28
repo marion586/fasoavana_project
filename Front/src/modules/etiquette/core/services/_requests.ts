@@ -29,6 +29,10 @@ export default class MaterialService {
   static async getAllBoites(): Promise<any> {
     return await Http.get("/boite");
   }
+
+  static async getAllEtiquettes(): Promise<any> {
+    return await Http.get("/etiquette");
+  }
   static async getBoiteById(id: any): Promise<any> {
     return await Http.get(`/boite/${id}`);
   }
