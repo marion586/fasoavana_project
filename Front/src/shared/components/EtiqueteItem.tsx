@@ -11,7 +11,12 @@ type Props = {
 const EtiqueteItem = ({ data, children }: Props) => {
   const navigate = useNavigate();
   return (
-    <div className="card" onClick={() => navigate(`list`, { state: data })}>
+    <div
+      className="card"
+      onClick={() =>
+        navigate(`details-etiquette/${data?.id_boite}`, { state: data })
+      }
+    >
       <BsBox size={40} style={{ fontWeight: "bold" }} color="white" />
       <span className="card__user-type" color="white">
         {data.reference}
