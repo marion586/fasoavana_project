@@ -44,16 +44,16 @@ export const bankColumns: ReadonlyArray<Column<any>> = [
     ),
     accessor: "color",
   },
-  {
-    Header: (props) => (
-      <CustomHeader
-        tableProps={props}
-        className="py-3 px-6 text-left"
-        title="STATUS"
-      />
-    ),
-    accessor: "status",
-  },
+  // {
+  //   Header: (props) => (
+  //     <CustomHeader
+  //       tableProps={props}
+  //       className="py-3 px-6 text-left"
+  //       title="STATUS"
+  //     />
+  //   ),
+  //   accessor: "status",
+  // },
   // {
   //   Header: (props) => (
   //     <CustomHeader

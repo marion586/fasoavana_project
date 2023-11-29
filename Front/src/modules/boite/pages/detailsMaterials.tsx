@@ -16,7 +16,7 @@ const DetailsMaterials = () => {
   const navigate = useNavigate();
   const [detailsData, setDetailsData] = useState<any>({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const notify = () => toast.success("Suppresion Effectuée");
+  const notify = () => toast.success("Creation de materiels Effectuée");
   const { idMaterial } = useParams();
   const handleOk = async () => {
     try {
@@ -28,7 +28,7 @@ const DetailsMaterials = () => {
       setIsModalOpen(false);
       navigate(-1);
     } catch (error) {
-      toast.error("Suppresion no Effectuée , un erreur possible");
+      toast.error("Ajout non Effectuée , un erreur possible");
     } finally {
       setLoading(false);
     }

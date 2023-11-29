@@ -33,7 +33,13 @@ const BoiteLists = () => {
       {data?.length ? (
         data?.map((d: any) => (
           <EtiqueteItem data={d}>
-            <Barcode width={0.5} height={50} value={d._id} />;
+            <Barcode
+              width={0.8}
+              height={50}
+              displayValue={false}
+              value={d._id}
+            />
+            ;
           </EtiqueteItem>
         ))
       ) : (

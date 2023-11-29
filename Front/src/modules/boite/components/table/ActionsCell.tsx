@@ -33,7 +33,7 @@ export const ActionsCell: FC<Props> = ({ bank }: any) => {
     try {
       setLoading(true);
       const response = await MaterialService.deleteMaterialById(bank._id);
-      dispatch(fetchMaterials());
+      // dispatch(fetchMaterials());
       console.log(response);
       notify();
       setIsModalOpen(false);

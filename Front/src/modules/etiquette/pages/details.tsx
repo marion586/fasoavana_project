@@ -11,12 +11,17 @@ const Details = () => {
   const { idBoite } = useParams();
   const getAlldata = async () => {
     try {
+      setLoading(true);
       const response = await MaterialService.getBoiteById(idBoite);
       console.log(response.data.data);
+      setData(response.data.data);
       const dMaterial = await MaterialService.getAllMaterialById(idBoite);
       console.log(dMaterial.data.data);
+      setMaterials(dMaterial.data.data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
   useEffect(() => {
