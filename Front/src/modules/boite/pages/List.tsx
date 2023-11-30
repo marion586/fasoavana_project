@@ -136,7 +136,9 @@ const List = () => {
         maskClosable={false}
         centered
         title={
-          <span className="text-black font-bold text-[16px]">Suppresion</span>
+          <span className="text-black font-bold text-[16px]">
+            Ajout de materiels
+          </span>
         }
         open={isModalOpen}
         onOk={handleOk}

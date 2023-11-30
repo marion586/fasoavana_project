@@ -132,7 +132,7 @@ const DetailsMaterials = () => {
             <Button
               handleClick={() => setIsModalOpen(true)}
               icon={<GoTrashcan />}
-              text="Supprimer"
+              text="AJOuter"
             />
           </div>
           <Modal
@@ -140,7 +140,7 @@ const DetailsMaterials = () => {
             centered
             title={
               <span className="text-black font-bold text-[16px]">
-                Suppresion
+                Ajout Materiels
               </span>
             }
             open={isModalOpen}

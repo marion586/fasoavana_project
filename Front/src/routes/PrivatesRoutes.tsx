@@ -19,12 +19,15 @@ const PrivatesRoutes = () => {
   return (
     <Routes>
       <Route element={<MasterLayout />}>
-        <Route path="auth/*" element={<Navigate to="/home" replace={true} />} />
+        <Route
+          path="auth/*"
+          element={<Navigate to="/materials" replace={true} />}
+        />
         <Route
           path="/"
           element={
             <SuspenseView>
-              <HomePage />
+              <MaterialsPage />
             </SuspenseView>
           }
         />
