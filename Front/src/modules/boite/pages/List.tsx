@@ -25,7 +25,7 @@ import BackButton from "@/shared/components/backButton";
 const List = () => {
   const location: any = useLocation();
   const [loading, setLoading] = useState(false);
-  const notify = () => toast.success("Suppresion Effectuée");
+  const notify = () => toast.success("Ajout de matériel Effectuée ");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [materialData, setMaterialData] = useState([]);
   const navigate = useNavigate();
